@@ -1,0 +1,8 @@
+{
+  "name": "Prometheus Hunk Creator Tools",
+  "version": "1.0.0",
+  "description": "Official creator tools and API integration pages for Prometheus Hunk.",
+  "author": "Midhun Angathil",
+  "website": "https://<your-github-username>.github.io/prometheushunk-site/",
+  "privacy_policy": "https://<your-github-username>.github.io/prometheushunk-site/privacy-policy.html"
+}
