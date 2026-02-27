@@ -68,20 +68,42 @@ video {
 
 .buttons {
   margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 20px;
 }
 
 .btn {
-  margin: 8px;
-  padding: 12px 20px;
+  flex: 0 1 auto;
+  padding: 12px 24px;
+  min-width: 120px;
+  text-align: center;
   border: 1px solid #00e5ff;
+  border-radius: 25px;
   text-decoration: none;
   color: #00e5ff;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
   background: #00e5ff;
   color: black;
   box-shadow: 0 0 20px #00e5ff;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    min-width: 140px;
+    font-size: 1rem;
+  }
+
+  .avatar {
+    width: 110px;
+  }
+
+  .glitch span {
+    font-size: 2.2rem;
+  }
 }
