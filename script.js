@@ -1,42 +1,39 @@
-let currentIndex = 0;
+// LOAD VIDEOS FROM YOUTUBE
+const API_KEY = YT_API_KEY; 
+const CHANNEL_ID = "UCyQ0lZ8JTT_Xpn6bezW0RMw";
+const MAX_RESULTS = 6;
+
+let videoOffset = 0;
 
 async function loadVideos() {
-    const { YT_API_KEY, CHANNEL_ID, MAX_RESULTS } = window.PH_CONFIG;
-
-    const url =
-        `https://www.googleapis.com/youtube/v3/search?` +
-        `key=${YT_API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&maxResults=${MAX_RESULTS}`;
-
     try {
+        const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+
         const response = await fetch(url);
         const data = await response.json();
 
         if (!data.items) return;
 
-        const carousel = document.getElementById("carousel");
-        carousel.innerHTML = "";
+        const container = document.getElementById("video-container");
 
         data.items.forEach(item => {
-            const videoId = item.id.videoId;
-            if (!videoId) return;
-
-            const iframe = document.createElement("iframe");
-            iframe.src = `https://www.youtube.com/embed/${videoId}`;
-            carousel.appendChild(iframe);
+            if (item.id.videoId) {
+                const iframe = document.createElement("iframe");
+                iframe.src = `https://www.youtube.com/embed/${item.id.videoId}`;
+                container.appendChild(iframe);
+            }
         });
-    } catch (err) {
-        console.error("YouTube API error:", err);
+
+    } catch (e) {
+        console.error("Failed loading YouTube videos:", e);
     }
 }
 
-function moveCarousel(dir) {
-    const items = document.querySelectorAll("#carousel iframe");
-    if (items.length === 0) return;
-
-    currentIndex = (currentIndex + dir + items.length) % items.length;
-
-    const carousel = document.getElementById("carousel");
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+function slideCarousel(direction) {
+    const container = document.getElementById("video-container");
+    const cardWidth = 345;
+    videoOffset += direction * cardWidth;
+    container.style.transform = `translateX(${-videoOffset}px)`;
 }
 
-loadVideos();
+window.onload = () => loadVideos();
