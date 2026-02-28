@@ -1,7 +1,7 @@
 // -----------------------------
 // YOUTUBE API CONFIG
 // -----------------------------
-const API_KEY = "YOUR_YT_API_KEY_MASKED";  // Placeholder (masked)
+const API_KEY = window.PH_CONFIG?.YT_API_KEY || "";
 const CHANNEL_ID = "UC7mS2fz-ps8_8tMNet6Xn1w"; // PrometheusHunk channel ID
 const MAX_RESULTS = 3;
 
