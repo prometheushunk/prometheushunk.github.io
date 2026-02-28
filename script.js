@@ -1,61 +1,42 @@
-// -----------------------------
-// YOUTUBE API CONFIG
-// -----------------------------
-const API_KEY = window.PH_CONFIG?.YT_API_KEY || "";
-const CHANNEL_ID = "UC7mS2fz-ps8_8tMNet6Xn1w"; // PrometheusHunk channel ID
-const MAX_RESULTS = 3;
+let currentIndex = 0;
 
-const carousel = document.getElementById("videoCarousel");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-
-let position = 0;
-
-// --------------------------------------------
-// FETCH LATEST VIDEOS
-// --------------------------------------------
 async function loadVideos() {
+    const { YT_API_KEY, CHANNEL_ID, MAX_RESULTS } = window.PH_CONFIG;
+
+    const url =
+        `https://www.googleapis.com/youtube/v3/search?` +
+        `key=${YT_API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&maxResults=${MAX_RESULTS}`;
+
     try {
-        const url =
-            `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}` +
-            `&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+        const response = await fetch(url);
+        const data = await response.json();
 
-        const res = await fetch(url);
-        const data = await res.json();
+        if (!data.items) return;
 
+        const carousel = document.getElementById("carousel");
         carousel.innerHTML = "";
 
-        data.items.forEach(video => {
-            if (video.id.videoId) {
-                const iframe = document.createElement("iframe");
-                iframe.src = `https://www.youtube.com/embed/${video.id.videoId}`;
-                iframe.allowFullscreen = true;
-                carousel.appendChild(iframe);
-            }
+        data.items.forEach(item => {
+            const videoId = item.id.videoId;
+            if (!videoId) return;
+
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            carousel.appendChild(iframe);
         });
     } catch (err) {
-        console.error("YouTube Fetch Error:", err);
+        console.error("YouTube API error:", err);
     }
 }
 
-// --------------------------------------------
-// CAROUSEL CONTROL
-// --------------------------------------------
-nextBtn.addEventListener("click", () => {
-    position = Math.min(position + 1, MAX_RESULTS - 1);
-    carousel.style.transform = `translateX(-${position * 100}%)`;
-});
+function moveCarousel(dir) {
+    const items = document.querySelectorAll("#carousel iframe");
+    if (items.length === 0) return;
 
-prevBtn.addEventListener("click", () => {
-    position = Math.max(position - 1, 0);
-    carousel.style.transform = `translateX(-${position * 100}%)`;
-});
+    currentIndex = (currentIndex + dir + items.length) % items.length;
 
-// Auto-slide every 5 seconds
-setInterval(() => {
-    position = (position + 1) % MAX_RESULTS;
-    carousel.style.transform = `translateX(-${position * 100}%)`;
-}, 5000);
+    const carousel = document.getElementById("carousel");
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
 
-// Init
 loadVideos();

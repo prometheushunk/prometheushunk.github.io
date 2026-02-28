@@ -3,62 +3,52 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prometheus Hunk • PlayStation Cinematic Gaming</title>
+    <title>Prometheus Hunk • Cinematic Gaming</title>
+
     <link rel="stylesheet" href="styles.css" />
+    <script src="config.js"></script>
 </head>
 
 <body>
-    <div class="hero-container">
-        <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
-            <source src="assets/hero-bg.mp4" type="video/mp4" />
-        </video>
 
-        <div class="hero-overlay"></div>
+    <!-- Background Video -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
 
-        <div class="hero-content">
-            <img src="assets/profile.png" alt="Profile" class="profile-img" />
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <img src="assets/profile.png" class="profile-img" alt="Profile" />
+        <h1>Prometheus Hunk</h1>
+        <p>Cinematic PlayStation Gaming • Boss Fights • Stealth • Story Missions • No Commentary</p>
 
-            <h1 class="title">Prometheus Hunk</h1>
-            <p class="tagline">
-                Cinematic PlayStation Gaming • Boss Fights • Stealth • Story Missions • No Commentary
-            </p>
-
-            <div class="social-buttons">
-                <a href="https://youtube.com/@prometheushunk9295" target="_blank" class="btn yt">YouTube</a>
-                <a href="https://x.com/prometheushunk" target="_blank" class="btn x">X (Twitter)</a>
-                <a href="https://www.instagram.com/prometheushunk" target="_blank" class="btn ig">Instagram</a>
-                <a href="https://www.threads.net/@prometheushunk" target="_blank" class="btn threads">Threads</a>
-                <a href="https://t.me/prometheushunk" target="_blank" class="btn tg">Telegram</a>
-                <a href="https://pin.it/2PZ7gMAGo" target="_blank" class="btn pt">Pinterest</a>
-                <a href="https://www.facebook.com/prometheushunk" target="_blank" class="btn fb">Facebook</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Latest Videos Section -->
-    <section class="videos-section">
-        <h2 class="section-title">Latest Videos</h2>
-
-        <!-- Carousel -->
-        <div class="carousel-container">
-            <button class="carousel-btn left" id="prevBtn">&#10094;</button>
-
-            <div class="carousel" id="videoCarousel">
-                <!-- JS inserts the video slides dynamically -->
-            </div>
-
-            <button class="carousel-btn right" id="nextBtn">&#10095;</button>
+        <div class="social-buttons">
+            <a href="https://youtube.com/@prometheushunk9295">YouTube</a>
+            <a href="https://x.com/prometheushunk">X (Twitter)</a>
+            <a href="https://instagram.com/prometheushunk">Instagram</a>
+            <a href="https://threads.com/@prometheushunk">Threads</a>
+            <a href="https://t.me/prometheushunk">Telegram</a>
+            <a href="https://pin.it/2PZ7gMAGo">Pinterest</a>
+            <a href="https://facebook.com/prometheushunk">Facebook</a>
         </div>
     </section>
 
+    <!-- LATEST VIDEOS -->
+    <h2 class="section-title">Latest Videos</h2>
+
+    <div class="carousel-container">
+        <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>
+        <div id="carousel" class="carousel"></div>
+        <button class="carousel-btn right" onclick="moveCarousel(1)">❯</button>
+    </div>
+
     <footer>
-        <p>
-            © 2026 Prometheus Hunk.  
-            <a href="privacy-policy.html">Privacy Policy</a> •
-            <a href="terms-of-service.html">Terms of Service</a>
-        </p>
+        © 2026 Prometheus Hunk. 
+        <a href="privacy-policy.html">Privacy Policy</a> •
+        <a href="terms-of-service.html">Terms of Service</a>
     </footer>
-<script src="config.js"></script>
-<script defer src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
