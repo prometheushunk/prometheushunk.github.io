@@ -112,6 +112,57 @@ video {
   }
 }
 
+/* ---- Social Grid Improved Responsive Layout ---- */
+
+.social-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* Larger desktop buttons */
+@media (min-width: 900px) {
+    .social-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.social-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(20, 20, 20, 0.55);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+}
+
+/* Hover glow */
+.social-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 15px var(--glow, #0ff);
+}
+
+/* --- Platform Colors --- */
+
+.youtube { --glow: #ff0000; }
+.instagram { --glow: #e1306c; }
+.threads { --glow: #ffffff; }
+.facebook { --glow: #1877f2; }
+.twitter { --glow: #1da1f2; }
+.telegram { --glow: #2aabee; }
+.pinterest { --glow: #e60023; }
+.tumblr { --glow: #35465c; }
+.twitch { --glow: #9146ff; }
+.kick { --glow: #53fc18; }
+
 /* --------------------
    MOBILE OPTIMIZED LAYOUT
    --------------------*/
