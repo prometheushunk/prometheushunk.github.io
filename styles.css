@@ -1,214 +1,92 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
+/* GLOBAL STYLES */
 body {
-  background: #0d0f11;
-  color: white;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0d;
+    color: #e5e5e5;
+    text-align: center;
 }
 
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
+/* HEADER */
+.header {
+    padding: 40px 20px;
 }
 
-video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid #00ffff;
+    box-shadow: 0 0 25px #00ffff80;
 }
 
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(13,15,17,0.7);
-  backdrop-filter: blur(6px);
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.avatar {
-  width: 140px;
-  border-radius: 50%;
-  border: 3px solid #00e5ff;
-  box-shadow: 0 0 25px #00e5ff;
-  margin-bottom: 20px;
-}
-
-.glitch span {
-  font-size: 3rem;
-  letter-spacing: 3px;
-  transition: all 0.3s ease;
-}
-
-.glitch:hover span {
-  text-shadow:
-    2px 2px #ff0099,
-    -2px -2px #00e5ff;
+.title {
+    margin-top: 15px;
+    font-size: 2.5rem;
 }
 
 .tagline {
-  margin-top: 15px;
-  font-size: 1.05rem;
-  color: #ccc;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+    margin-top: 8px;
+    font-size: 1rem;
+    opacity: 0.85;
 }
 
-.buttons {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  padding: 0 20px;
+/* SOCIAL BUTTONS */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
 }
 
 .btn {
-  flex: 0 1 auto;
-  padding: 12px 24px;
-  min-width: 120px;
-  text-align: center;
-  border: 1px solid #00e5ff;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #00e5ff;
-  transition: 0.3s ease;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #00ffff80;
+    transition: 0.25s;
 }
 
 .btn:hover {
-  background: #00e5ff;
-  color: black;
-  box-shadow: 0 0 20px #00e5ff;
+    background: #00ffff30;
+    box-shadow: 0 0 10px #00ffff80;
 }
 
-@media (max-width: 480px) {
-  .btn {
-    min-width: 140px;
-    font-size: 1rem;
-  }
-
-  .avatar {
-    width: 110px;
-  }
-
-  .glitch span {
-    font-size: 2.2rem;
-  }
+/* CAROUSEL SECTION */
+.carousel-section {
+    margin-top: 50px;
+    padding: 20px;
 }
 
-/* ---- Social Grid Improved Responsive Layout ---- */
-
-.social-grid {
-    display: grid;
-    gap: 14px;
-    margin-top: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+.section-title {
+    margin-bottom: 20px;
 }
 
-/* Larger desktop buttons */
-@media (min-width: 900px) {
-    .social-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-.social-btn {
+.carousel {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 14px 18px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    background: rgba(20, 20, 20, 0.55);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
-    backdrop-filter: blur(6px);
-    transition: 0.25s ease;
-}
-
-/* Hover glow */
-.social-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 15px var(--glow, #0ff);
-}
-
-/* --- Platform Colors --- */
-
-.youtube { --glow: #ff0000; }
-.instagram { --glow: #e1306c; }
-.threads { --glow: #ffffff; }
-.facebook { --glow: #1877f2; }
-.twitter { --glow: #1da1f2; }
-.telegram { --glow: #2aabee; }
-.pinterest { --glow: #e60023; }
-.tumblr { --glow: #35465c; }
-.twitch { --glow: #9146ff; }
-.kick { --glow: #53fc18; }
-
-/* --------------------
-   MOBILE OPTIMIZED LAYOUT
-   --------------------*/
-@media (max-width: 768px) {
-
-  body {
-    padding: 0 15px;
-  }
-
-  .hero {
-    margin-top: 20px;
-  }
-
-  .profile-pic-container {
-    width: 120px;
-    height: 120px;
-  }
-
-  .profile-pic {
-    border-width: 3px;
-  }
-
-  .title {
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-    margin-top: 15px;
-  }
-
-  .tagline {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-top: 10px;
-    max-width: 100%;
-  }
-
-  .buttons {
-    display: flex;
+    gap: 25px;
     flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 22px;
-  }
+}
 
-  .button {
-    min-width: 130px;
-    padding: 12px 0;
-    font-size: 1rem;
-  }
+.video-card iframe {
+    border-radius: 10px;
+    width: 360px;
+    height: 203px;
+    box-shadow: 0 0 25px #00ffff40;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer a {
+    color: #00ffff;
+    text-decoration: none;
 }
