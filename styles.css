@@ -1,4 +1,4 @@
-/* ===== Global Reset ===== */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -8,17 +8,18 @@
 
 body {
     background: #000;
-    color: white;
+    color: #fff;
     overflow-x: hidden;
     text-align: center;
 }
 
-/* ============================
-   HERO BACKGROUND VIDEO
-============================ */
+/* ===== HERO BACKGROUND VIDEO ===== */
 .hero-video {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: -1;
     overflow: hidden;
 }
@@ -27,21 +28,21 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(1.3); /* Slight boost to video brightness */
+    filter: brightness(1.3);
 }
 
-/* Dark overlay (Option B – balanced visibility) */
-.hero-video::after {
+.hero-video:after {
     content: "";
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25); /* Slightly dark overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.25);
     backdrop-filter: blur(4px);
 }
 
-/* ============================
-   PROFILE + TITLE SECTION
-============================ */
+/* ===== HERO SECTION ===== */
 .hero-section {
     padding-top: 140px;
     padding-bottom: 80px;
@@ -54,9 +55,9 @@ body {
     border: 4px solid #00eaff;
     box-shadow: 0 0 25px rgba(0, 238, 255, 0.9);
     margin-bottom: 25px;
+    object-fit: cover;
 }
 
-/* Neon title */
 h1 {
     font-size: 42px;
     font-weight: 700;
@@ -71,9 +72,7 @@ h1 {
     margin: 0 auto 40px auto;
 }
 
-/* ============================
-   SOCIAL LINKS BUTTON GRID
-============================ */
+/* ===== SOCIAL BUTTONS ===== */
 .social-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -99,9 +98,7 @@ h1 {
     transform: translateY(-3px);
 }
 
-/* ============================
-   LATEST VIDEOS HEADER
-============================ */
+/* ===== LATEST VIDEOS TITLE ===== */
 .section-title {
     margin-top: 40px;
     font-size: 34px;
@@ -109,9 +106,7 @@ h1 {
     text-shadow: 0 0 12px #00eaff;
 }
 
-/* ============================
-   VIDEO CAROUSEL
-============================ */
+/* ===== VIDEO CAROUSEL ===== */
 .carousel-container {
     position: relative;
     margin-top: 40px;
@@ -138,12 +133,12 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.4);
 }
 
-/* Carousel arrows */
+/* ===== CAROUSEL ARROWS ===== */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     border: 2px solid #00eaff;
     width: 48px;
     height: 48px;
@@ -154,7 +149,8 @@ h1 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s;
+    z-index: 10;
 }
 
 .carousel-btn:hover {
@@ -166,9 +162,7 @@ h1 {
 #prevVideo { left: 10px; }
 #nextVideo { right: 10px; }
 
-/* ============================
-   FOOTER
-============================ */
+/* ===== FOOTER ===== */
 footer {
     font-size: 14px;
     opacity: 0.8;
@@ -178,20 +172,15 @@ footer {
 
 footer a {
     color: #00eaff;
-    text-decoration: none;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-/* ============================
-   MOBILE OPTIMIZATION
-============================ */
+/* ===== MOBILE ===== */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 34px;
-    }
+    h1 { font-size: 34px; }
 
     .profile-pic {
         width: 130px;
