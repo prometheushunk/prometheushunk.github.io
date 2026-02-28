@@ -1,81 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prometheus Hunk</title>
-
-<link rel="stylesheet" href="styles.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prometheus Hunk | Cinematic PlayStation Gaming</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="hero">
+<!-- HEADER SECTION -->
+<header class="header">
+    <img src="assets/profile.jpg" alt="Profile" class="profile-pic" />
+    <h1 class="title">Prometheus Hunk</h1>
+    <p class="tagline">Cinematic PlayStation Gaming • Boss Fights • Stealth • Story Missions • No Commentary</p>
 
-  <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="fallback.mp4" type="video/mp4">
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="content">
-    <img src="assets/profile.png" class="avatar">
-
-    <h1 class="glitch">
-      <span>PROMETHEUS HUNK</span>
-    </h1>
-
-    <p class="tagline">
-      Cinematic PlayStation Gaming • Boss Fights • Stealth • Story Missions • Puzzle Solving • No Commentary    
-    </p>
-
-    <div class="social-grid">
-
-        <a class="social-btn youtube" href="https://youtube.com/@prometheushunk9295" target="_blank">
-            <span>YouTube</span>
-        </a>
-
-        <a class="social-btn instagram" href="https://www.instagram.com/prometheushunk" target="_blank">
-            <span>Instagram</span>
-        </a>
-
-        <a class="social-btn threads" href="https://www.threads.net/@prometheushunk" target="_blank">
-            <span>Threads</span>
-        </a>
-
-        <a class="social-btn facebook" href="https://facebook.com/prometheushunk" target="_blank">
-            <span>Facebook</span>
-        </a>
-
-        <a class="social-btn twitter" href="https://x.com/prometheushunk" target="_blank">
-            <span>Twitter (X)</span>
-        </a>
-
-        <a class="social-btn telegram" href="https://t.me/prometheushunk" target="_blank">
-            <span>Telegram</span>
-        </a>
-
-        <a class="social-btn pinterest" href="https://pin.it/2PZ7gMAGo" target="_blank">
-            <span>Pinterest</span>
-        </a>
-
-        <a class="social-btn tumblr" href="#" target="_blank">
-            <span>Tumblr</span>
-        </a>
-
-        <a class="social-btn twitch" href="#" target="_blank">
-            <span>Twitch</span>
-        </a>
-
-        <a class="social-btn kick" href="#" target="_blank">
-            <span>Kick</span>
-        </a>
-
+    <!-- Social buttons -->
+    <div class="social-links">
+        <a href="https://youtube.com/@prometheushunk9295" target="_blank" class="btn youtube">YouTube</a>
+        <a href="https://x.com/prometheushunk" target="_blank" class="btn x">X (Twitter)</a>
+        <a href="https://www.facebook.com/prometheushunk" target="_blank" class="btn facebook">Facebook</a>
+        <a href="https://www.instagram.com/prometheushunk" target="_blank" class="btn instagram">Instagram</a>
+        <a href="https://www.threads.com/@prometheushunk" target="_blank" class="btn threads">Threads</a>
+        <a href="https://t.me/prometheushunk" target="_blank" class="btn telegram">Telegram</a>
+        <a href="https://pin.it/2PZ7gMAGo" target="_blank" class="btn pinterest">Pinterest</a>
     </div>
-  </div>
+</header>
 
-</div>
+<!-- VIDEO CAROUSEL -->
+<section class="carousel-section">
+    <h2 class="section-title">Latest Videos</h2>
+    <div class="carousel" id="carousel"></div>
+</section>
 
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Prometheus Hunk. All Rights Reserved.</p>
+    <a href="privacy.html">Privacy Policy</a> •
+    <a href="terms.html">Terms of Use</a>
+</footer>
+
+<script src="config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
